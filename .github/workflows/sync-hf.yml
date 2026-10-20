@@ -1,0 +1,19 @@
+name: Deploy to Hugging Face Space
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+jobs:
+  sync-to-hub:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+      - name: Sync to Hugging Face Space
+        uses: huggingface/hub-sync@v0.3.0
+        with:
+          github_repo_id: ${{ github.repository }}
+          huggingface_repo_id: YOUR_HF_USERNAME/humanlike-chess
+          hf_token: ${{ secrets.HF_TOKEN }}
+          space_sdk: docker

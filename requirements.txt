@@ -1,0 +1,6 @@
+fastapi>=0.115,<1
+uvicorn>=0.30,<1
+python-chess>=1.999
+requests>=2.31,<3
+pydantic>=2,<3
+# Maia-3 is installed separately from its official repository.
